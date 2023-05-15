@@ -1,6 +1,5 @@
 const express = require('express')
 const dotenv = require('dotenv');
-const request = require('request');
 const axios = require('axios');
 
 const port = 5000
@@ -66,14 +65,6 @@ app.get('/auth/callback', (req, res) => {
     }
   });
 
-  /*
-  request.post(authOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      access_token = body.access_token;
-      res.redirect('/')
-    }
-  });
-*/
 });
 
 app.get('/auth/token', (req, res) => {

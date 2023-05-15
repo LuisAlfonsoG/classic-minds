@@ -1,6 +1,8 @@
 const express = require('express')
 const dotenv = require('dotenv');
 const request = require('request');
+const axios = require('axios');
+
 const port = 5000
 
 dotenv.config()
@@ -44,7 +46,8 @@ app.get('/auth/callback', (req, res) => {
 
   let authOptions = {
     url: 'https://accounts.spotify.com/api/token',
-    form: {
+    method: 'POST',
+    data: {
       code: code,
       redirect_uri: "http://localhost:3000/auth/callback",
       grant_type: 'authorization_code'
@@ -56,12 +59,21 @@ app.get('/auth/callback', (req, res) => {
     json: true
   };
 
+  axios(authOptions).then(response => {
+    if(response.status === 200){
+      access_token = response.data.access_token;
+      res.redirect('/');
+    }
+  });
+
+  /*
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       access_token = body.access_token;
       res.redirect('/')
     }
   });
+*/
 });
 
 app.get('/auth/token', (req, res) => {

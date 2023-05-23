@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import WebPlayback from './WebPlayback'
 import Login from './Login'
 import './App.css';
+import SearchComponent from './SearchComponent';
 
 function App() {
 
   const [token, setToken] = useState('');
-
   useEffect(() => {
 
     async function getToken() {
@@ -23,8 +23,12 @@ function App() {
     <>
         { 
           (token === '') 
-            ? <Login/>  
-            : <WebPlayback token={token} /> 
+            ? <Login />  
+            : <>
+                <SearchComponent token={token}/>
+                
+
+              </> 
         }
     </>
   );

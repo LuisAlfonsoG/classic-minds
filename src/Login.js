@@ -1,7 +1,8 @@
 
 import React from 'react';
 
-function Login() {
+function Login({expired}) {
+    
     return (
         <div className="App">
             <header className="App-header">

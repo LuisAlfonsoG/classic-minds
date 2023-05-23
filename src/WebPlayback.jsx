@@ -16,7 +16,7 @@ const track = {
 function WebPlayback(props) {
 
   const [player, setPlayer] = useState(undefined);
-
+  const [id, setId] = useState(undefined);
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
   const [current_track, setTrack] = useState(track);
@@ -42,6 +42,7 @@ function WebPlayback(props) {
 
       player.addListener('ready', ({ device_id }) => {
         console.log('Ready with Device ID', device_id);
+        setId(device_id);
       });
 
       player.addListener('not_ready', ({ device_id }) => {
@@ -58,7 +59,6 @@ function WebPlayback(props) {
         setTrack(state.track_window.current_track);
         setPaused(state.paused);
 
-
         player.getCurrentState().then(state => {
           (!state) ? setActive(false) : setActive(true)
         });
@@ -69,7 +69,7 @@ function WebPlayback(props) {
 
     };
   }, []);
-
+  
   return (
     <>
       <div className="container">

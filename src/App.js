@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import WebPlayback from './WebPlayback'
-import Login from './Login'
+import Login from './Login';
 import './App.css';
-import SearchComponent from './SearchComponent';
+import Main from './components/Main';
 
 function App() {
 
@@ -24,11 +23,7 @@ function App() {
         { 
           (token === '') 
             ? <Login />  
-            : <>
-                <SearchComponent token={token}/>
-                
-
-              </> 
+            : <Main token={token}/>
         }
     </>
   );

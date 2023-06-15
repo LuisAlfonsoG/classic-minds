@@ -15,8 +15,8 @@ export default function DisplayObj({obj, space = 0}){
             <div>{s} {key} :</div>
             {
               typeof obj[key] === "object"
-              ? <DisplayObj space={space + 1} obj={obj[key]} />
-              : <div>{s} <span style={{"visibility": "hidden"}}>++</span> {obj[key]} </div>
+                ? <DisplayObj space={space + 1} obj={obj[key]} />
+                : <div>{s} <span style={{"visibility": "hidden"}}>++</span> {obj[key]} </div>
             }
           </div>
         )

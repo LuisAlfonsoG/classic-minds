@@ -12,7 +12,6 @@ const track = {
   ]
 }
 
-
 function WebPlayback(props) {
 
   const [player, setPlayer] = useState(undefined);
@@ -33,7 +32,7 @@ function WebPlayback(props) {
     window.onSpotifyWebPlaybackSDKReady = () => {
 
       const player = new window.Spotify.Player({
-        name: 'Web Playback SDK',
+        name: 'Classic Minds',
         getOAuthToken: cb => { cb(props.token); },
         volume: 0.5
       });
@@ -105,4 +104,4 @@ function WebPlayback(props) {
 
 }
 
-export default WebPlayback
+export default WebPlayback;

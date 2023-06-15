@@ -1,16 +1,16 @@
 import React from 'react';
-import DisplayItem from './DisplayItem';
+import Track from './Track';
 
-export default function SearchResultList({ list, play }){
+export default function TrackList({ list, play }){
   return (
     <>
       {
         list.map(
           item => 
-            <DisplayItem 
+            <Track 
               key={item.id} 
               item={item} 
-              play={play}
+              play={(uri) => play(item.album.uri, uri)}
             />
         )
       }

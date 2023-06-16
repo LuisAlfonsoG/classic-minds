@@ -93,7 +93,7 @@ hr{
 }
 
 #top-bar{
-  width: min(738px, calc(90vw - 384px));
+  width: min(714px, calc(90vw - 384px));
 }
 
 #top-bar{
@@ -189,6 +189,15 @@ hr{
   align-items: center;
   justify-content: flex-start;
 }
+.track .wrapper .track-info .track-name{
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0.3rem;
+}
+
+.track .wrapper .track-info .track-artist-name{
+  font-size: 12px;
+}
 
 .track button{
   margin: 0 1rem;
@@ -232,6 +241,10 @@ hr{
   margin-bottom: 0.5rem;
 }
 
+.main-wrapper .now-playing__artist{
+  font-size: 14px;
+}
+
 .controllers{
   width: 90%;
   display: flex;
@@ -260,4 +273,104 @@ hr{
   background: var(--primary-color);
   display: block;
   height: 2px;
+}
+
+.wip-tag{
+  background: var(--surface-container-high-color);
+  border-radius: 28px;
+  box-shadow: var(--shadow-g3);
+  color: var(--on-surface-color);
+  padding: 12px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 300px;
+}
+
+.wip-tag .message{
+  margin: 1rem;
+}
+
+.wip-tag .action{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wip-tag .close-button{
+  margin: 1rem;
+  font-size: 16px;
+  background: none ;
+  border: none;
+  color: var(--primary-color);
+}
+
+#login-page-background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+#login-page-background .background-image{
+  background-image: url("../public/login-background-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#login-page-background .background-gradient{
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Login-page-main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.Login-page-main p{
+  font-size: 1.5rem;
+  max-width: 360px;
+  color: #fff;
+}
+.classic-minds-app-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.classic-minds-app-logo h1{
+  font-size: 4rem;
+  margin: 0;
+  color: #fff;
+}
+
+.login-btn button{
+  background: #006688;
+  color: #fff;
+  border: none;
+  border-radius: 28px;
+  box-shadow: var(--shadow-g3);
+  padding: 16px;
+  font-size: 16px;
+}
+
+button{
+  cursor: pointer;
 }

@@ -19,8 +19,8 @@ export default function Track({item, play}){
           <img src="play-arrow.svg" />
         </button>
         <div className="track-info">
-          <div className="">{name}</div>
-          <div className="">{artists[0].name}</div>
+          <div className="track-name">{name}</div>
+          <div className="track-artist-name">{artists[0].name}</div>
         </div>
       </div>
       <div className="album-image">

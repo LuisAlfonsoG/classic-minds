@@ -1,6 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv');
 const axios = require('axios');
+const path = require('path');
 
 const port = 5000
 
@@ -9,7 +10,7 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-let spotify_redirect_uri = 'http://localhost:3000/auth/callback';
+let spotify_redirect_uri = 'http://localhost:5000/auth/callback';
 
 global.access_token = ''
 
@@ -48,7 +49,7 @@ app.get('/auth/callback', (req, res) => {
     method: 'POST',
     data: {
       code: code,
-      redirect_uri: "http://localhost:3000/auth/callback",
+      redirect_uri: spotify_redirect_uri,
       grant_type: 'authorization_code'
     },
     headers: {
@@ -78,3 +79,5 @@ app.get('/auth/token', (req, res) => {
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
+
+app.use(express.static(path.join(__dirname, '../build')));

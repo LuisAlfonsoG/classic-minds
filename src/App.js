@@ -21,9 +21,9 @@ function App() {
   return (
     <>
         { 
-          (token === '') 
-            ? <Login />  
-            : <Main token={token}/>
+           (token === '') 
+             ? <Login />  
+             : <Main token={token}/>
         }
     </>
   );

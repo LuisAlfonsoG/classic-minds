@@ -2,13 +2,18 @@ import React from "react";
 import NavBar from "./NavBar";
 import SearchComponent from "./SearchComponent";
 import WebPlayback from "./WebPlayback";
+import WIPTag from "./WIPTag";
 
 export default function Main({token}){
   return (
     <>
-      <NavBar />
-      <WebPlayback token={token}/>
-      <SearchComponent token={token}/>      
+      <div id="background-gradient"></div>
+      <div id="main-container">
+        <NavBar />
+        <WebPlayback token={token}/>
+        <SearchComponent token={token}/>
+      </div>
+      <WIPTag />      
     </>
   );  
 }

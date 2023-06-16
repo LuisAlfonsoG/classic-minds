@@ -5,7 +5,7 @@ export default function AppIcon(){
     <>
       <div className="app-icon">
         <div className="icon">
-          
+          <img src="Classic-Minds-Logo.png" />
         </div>
       </div>
     </>

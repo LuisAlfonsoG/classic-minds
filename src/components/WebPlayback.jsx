@@ -19,7 +19,8 @@ function WebPlayback(props) {
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
   const [current_track, setTrack] = useState(track);
-
+  const [position, setPosition] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
 
@@ -57,7 +58,8 @@ function WebPlayback(props) {
 
         setTrack(state.track_window.current_track);
         setPaused(state.paused);
-
+        setPosition(state.position);
+        setDuration(state.duration);
         player.getCurrentState().then(state => {
           (!state) ? setActive(false) : setActive(true)
         });
@@ -71,9 +73,9 @@ function WebPlayback(props) {
   
   return (
     <>
-      <div className="container">
+      <div id='playback' className="playback-container">
         <div className="main-wrapper">
-          <img src={current_track.album.images[0].url}
+          <img src={current_track.album.images[0].url || "default-album-img.png"}
             className="now-playing__cover" alt="" />
 
           <div className="now-playing__side">
@@ -85,18 +87,27 @@ function WebPlayback(props) {
               current_track.artists[0].name
             }</div>
           </div>
-          <button className="btn-spotify" onClick={() => { player.previousTrack() }} >
-            &lt;&lt;
-          </button>
+          <div className='progress-bar'>
+            <span style={{
+              width: duration ? (100*position/duration)+'%': '0%'}}></span>
+          </div>
+          <div className='controllers'>
+            <button className="btn-prev" onClick={() => { player.previousTrack() }} >
+              <img src="skip-previous.svg" alt="" />
+            </button>
 
-          <button className="btn-spotify" onClick={() => { player.togglePlay() }} >
-            {is_paused ? "PLAY" : "PAUSE"}
-          </button>
+            <button className="btn-play-pause" onClick={() => { player.togglePlay() }} >
+              {
+                is_paused 
+                ? <img src='play-controller.svg'/> 
+                : <img src='pause-controller.svg'/>
+              }
+            </button>
 
-          <button className="btn-spotify" onClick={() => { player.nextTrack() }} >
-            &gt;&gt;
-          </button>
-
+            <button className="btn-next" onClick={() => { player.nextTrack() }} >
+              <img src='skip-next.svg' />
+            </button>
+          </div>
         </div>
       </div>
     </>

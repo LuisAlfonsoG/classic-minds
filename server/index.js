@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const axios = require('axios');
 const path = require('path');
 
-const port = 5000
+const port = process.env.port || 5000;
 
 dotenv.config()
 

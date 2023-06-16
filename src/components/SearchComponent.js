@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import SearchBar from "./SearchBar";
 import TrackList from "./TrackList";
 import play from "../play";
+import TopBar from "./TopBar";
 
 async function search(value, token){
   
@@ -24,10 +24,10 @@ export default function SearchComponent({token}){
    
   return (
     <>
-      <SearchBar 
+      <TopBar 
         search={
           async value => setSearchResult(await search(value, token))
-        } 
+        }
       />
       <TrackList 
         list={searchResult.tracks?.items || []} 

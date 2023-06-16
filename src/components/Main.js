@@ -6,9 +6,12 @@ import WebPlayback from "./WebPlayback";
 export default function Main({token}){
   return (
     <>
-      <NavBar />
-      <WebPlayback token={token}/>
-      <SearchComponent token={token}/>      
+      <div id="background-gradient"></div>
+      <div id="main-container">
+        <NavBar />
+        <WebPlayback token={token}/>
+        <SearchComponent token={token}/>
+      </div>      
     </>
   );  
 }

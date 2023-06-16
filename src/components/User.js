@@ -4,7 +4,7 @@ export default function User(){
   return (
     <>
       <div className="user-profile">
-        <div className="avatar"></div>
+        <div className="avatar">A</div>
       </div>
     </>
   );

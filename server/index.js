@@ -10,7 +10,7 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-let spotify_redirect_uri = `${process.env.HOST}/auth/callback`;
+let spotify_redirect_uri = `${process.env.HOST}auth/callback`;
 
 global.access_token = ''
 

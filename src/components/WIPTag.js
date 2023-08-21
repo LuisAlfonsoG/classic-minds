@@ -11,7 +11,7 @@ export default function WIPTag(){
     <div className="tag wip-tag">
       <div className="message">
         <h2>App under development</h2>
-        <p>Some funtions are not available yet</p>
+        <p>Some functions are not available yet. Only authorized users can make full use of the App.</p>
       </div>
       <div className="action">
         <button

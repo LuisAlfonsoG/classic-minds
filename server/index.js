@@ -10,7 +10,7 @@ dotenv.config()
 let spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 let spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
-let spotify_redirect_uri = `${process.env.HOST}auth/callback`;
+let spotify_redirect_uri = `${process.env.ENVHOST}auth/callback`;
 
 global.access_token = ''
 
@@ -61,6 +61,7 @@ app.get('/auth/callback', (req, res) => {
 
   axios(authOptions).then(response => {
     if(response.status === 200){
+      console.log(response.data.access_token);
       access_token = response.data.access_token;
       res.redirect('/');
     }
@@ -80,4 +81,4 @@ app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
 
-app.use(express.static(path.join(__dirname, '../build')));
+//app.use(express.static(path.join(__dirname, '../build')));
